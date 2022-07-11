@@ -9,6 +9,7 @@ const {
 const Address = new GraphQLObjectType(require('./Address'));
 const Company = new GraphQLObjectType(require('./Company'));
 */
+
 const User_Bio = new GraphQLObjectType(require('./User_Bio'));
 module.exports = {
    name:'user',
@@ -17,8 +18,8 @@ module.exports = {
        name : {  type: GraphQLString },
        username : {  type: GraphQLString },
        email : {  type: GraphQLString },
-       firstname:{  type: GraphQLString },
-       lastname:{  type: GraphQLString },
+       phone:{  type: GraphQLString },
+       website:{  type: GraphQLString },
        bio: {  type:  User_Bio  }
    }
 };
