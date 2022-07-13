@@ -10,7 +10,7 @@ const Address = new GraphQLObjectType(require('./Address'));
 const Company = new GraphQLObjectType(require('./Company'));
 */
 
-const User_Bio = new GraphQLObjectType(require('./User_Bio'));
+//const User_Bio = new GraphQLObjectType(require('./User_Bio'));
 module.exports = {
    name:'user',
    fields: {
@@ -20,7 +20,7 @@ module.exports = {
        email : {  type: GraphQLString },
        phone:{  type: GraphQLString },
        website:{  type: GraphQLString },
-       bio: {  type:  User_Bio  }
+      // bio: {  type:  User_Bio  }
    }
 };
 /*

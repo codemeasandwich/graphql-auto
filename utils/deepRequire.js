@@ -1,13 +1,18 @@
 const fs   = require('fs');
 const path = require('path');
 
-module.exports = function loadDir(currentPath, selector) {
+const fileNamesToImport = ["mutation","query","subscription"]
+
+module.exports = function loadDir(currentPath,onlyRequireHandlers) {
   const filesToReturn = {};
   const files = fs.readdirSync(currentPath);
   for (let fileName of files) {
-      var curFile = path.join(currentPath, fileName);
+      const curFile = path.join(currentPath, fileName);
       if (fs.statSync(curFile).isFile()) {
-        filesToReturn[path.parse(fileName).name] = require(curFile)
+        const name = path.parse(fileName).name
+        if ( ! onlyRequireHandlers || fileNamesToImport.includes(name)) {
+           filesToReturn[name] = require(curFile)
+        }
       } else if (fs.statSync(curFile).isDirectory()) {
        filesToReturn[fileName] = loadDir(curFile);
       }
