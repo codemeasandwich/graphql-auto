@@ -21,4 +21,28 @@ const appServer  = require('http').createServer(app);
         console.log();  
       });
       
-      
+
+/*
+const input = { userId : 51, title: "foo", body: "bar" }
+var query = `mutation Post($input: PostInput) {
+  post(input: $input) {
+    id
+  }
+}`;
+
+fetch('http://localhost:1337/graphql', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+  },
+  body: JSON.stringify({
+    query,
+    variables: {
+      input
+    }
+  })
+})
+  .then(r => r.json())
+  .then(data => console.log('data returned:', data));
+*/
